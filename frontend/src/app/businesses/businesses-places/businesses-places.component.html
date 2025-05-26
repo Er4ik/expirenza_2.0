@@ -1,8 +1,11 @@
 <!-- Коли є заклади -->
 <div class="places-grid" *ngIf="places.length > 0; else noPlaces">
     <div class="place-card" (click)="goToPlaceInfo(place._id)"  *ngFor="let place of places">
+        <div class="place-picture">
+            <img src="assets/images/rest.jpg" alt="picture" />
+        </div>
         <h3>{{ place.name }}</h3>
-        <p>{{ place.city }} {{ place.address }}</p>
+        <p>{{ place.city }} | {{ place.address }}</p>
     </div>
     <div (click)="goToPlaceInfo('new')" class="place-card place-card-add">
         <h3>+ Add new place</h3>

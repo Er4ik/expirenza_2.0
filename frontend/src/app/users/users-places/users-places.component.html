@@ -1,1 +1,23 @@
-<p>users-places works!</p>
+<div class="places-grid" *ngIf="places.length > 0; else noPlaces">
+    <div class="place-card" (click)="goToPlaceInfo(place._id)"  *ngFor="let place of places">
+        <div class="place-info" >
+            <h3>{{ place.name }}</h3>
+            <div class="place-rating">
+                <ng-container *ngFor="let star of getStars(place?.rating || 4); let i = index">
+                  <span [class.filled]="i < (place?.rating || 0)">★</span>
+                </ng-container>
+            </div>           
+            <p>{{ place.city }} | {{ place.address }}</p>
+        </div>
+        <div class="place-picture">
+            <img src="assets/images/rest.jpg" alt="picture" />
+        </div>
+    </div>
+</div>
+
+<ng-template #noPlaces>
+    <div class="empty-state">
+        <p>Немає жодного закладу 😕</p>
+    </div>
+</ng-template>
+  

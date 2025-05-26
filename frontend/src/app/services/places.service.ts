@@ -3,11 +3,16 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
+export interface Review {
+  text: string;
+}
+
 export interface Place {
   _id: string;
   name: string;
   address?: string;
   city?: string;
+  rating?: number;
   createdAt?: string;
   reviews?: string[];
 }
@@ -46,5 +51,16 @@ export class PlaceService {
     return this.http.put<Place>(`${this.apiUrl}/${id}`, data, {
       headers: { Authorization: `Bearer ${token}` }
     });
+  }
+
+  addReview(placeId: string, review: Review): Observable<Place> {
+    const token = this.authService.getToken();
+    return this.http.post<Place>(
+      `${this.apiUrl}/${placeId}/review`,
+      review,
+      {
+        headers: new HttpHeaders({ Authorization: `Bearer ${token}` })
+      }
+    );
   }
 }

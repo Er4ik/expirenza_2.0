@@ -1,0 +1,39 @@
+<div class="place-view-container" *ngIf="place">
+    <div class="place-header">
+      <img src="assets/images/rest.jpg" alt="Place Image" class="place-image" />
+      <div class="place-details">
+        <h2>{{ place.name }}</h2>
+        <p>{{ place.city }} | {{ place.address }}</p>
+        <div class="place-rating">
+          <ng-container *ngFor="let star of getStars(); let i = index">
+            <span 
+              class="star" 
+              [class.filled]="i < (place.rating || 0)"
+              (click)="setRating(i + 1)"
+            >★</span>
+          </ng-container>
+          <span class="your-rating" *ngIf="rating">– Ваша оцінка: {{ rating }}</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="comment-form">
+      <h3>Залишити відгук</h3>
+      <textarea [(ngModel)]="commentText" rows="4" placeholder="Ваш коментар..."></textarea>
+      <button (click)="submitComment()">Надіслати</button>
+    </div>
+  
+    <div *ngIf="reviews?.length" class="reviews-section">
+        <h3>Відгуки</h3>
+        <div class="review-card" *ngFor="let review of reviews">
+          <div class="review-header">
+            <span class="user">{{ review.userName || 'Анонім' }}: {{ review?.text }}</span>
+          </div>
+        </div>
+      </div>
+    
+      <div *ngIf="!reviews?.length" class="no-reviews">
+        Немає відгуків поки що.
+      </div>
+  </div>
+  

@@ -10,8 +10,8 @@ router.delete("/:placeId", authMiddleware, placeController.deletePlace);
 router.get("/:placeId", placeController.getPlaceById);
 
 router.get("/:placeId/reviews", placeController.getReviewsForPlace);
-router.post("/:placeId/review", authMiddleware, placeController.addReview);
-router.put("/:placeId/reviews/:reviewId", authMiddleware, placeController.updateReview);
-router.delete("/:placeId/reviews/:reviewId", authMiddleware, placeController.deleteReview);
+router.post("/:placeId/review", placeController.addReview);
+router.put("/:placeId/reviews/:reviewId", placeController.updateReview);
+router.delete("/:placeId/reviews/:reviewId", placeController.deleteReview);
 
 module.exports = router;

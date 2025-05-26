@@ -1,0 +1,20 @@
+.app-header {
+    padding: 1rem;
+    background: linear-gradient(135deg, #f0f4ff, #e1eaff);
+    display: flex;
+    align-items: center;
+}
+
+.home-link {
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.home-link i {
+    font-size: 1.2rem;
+}

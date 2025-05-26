@@ -26,10 +26,8 @@
       <h3>Відгуки</h3>
       <div class="review-card" *ngFor="let review of reviews">
         <div class="review-header">
-          <span class="rating">★ {{ review.rating }}/5</span>
-          <span class="user">{{ review.userName || 'Анонім' }}</span>
+          <span class="user">{{ review.userName || 'Анонім' }}: {{ review?.text }}</span>
         </div>
-        <p class="text">{{ review?.text }}</p>
       </div>
     </div>
   

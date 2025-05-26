@@ -72,13 +72,13 @@ exports.deletePlace = async (req, res) => {
 // Додати відгук до місця
 exports.addReview = async (req, res) => {
   const { placeId } = req.params;
-  const { userId, rating, text } = req.body;
+  const { text } = req.body;
 
   try {
     const place = await Place.findById(placeId);
     if (!place) return res.status(404).json({ message: "Place not found" });
 
-    place.reviews.push({ userId, rating, text });
+    place.reviews.push({ text });
     await place.save();
     res.status(201).json(place);
   } catch (err) {
