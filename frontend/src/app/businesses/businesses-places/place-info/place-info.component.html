@@ -1,0 +1,40 @@
+<div class="place-info-container">
+    <h2 *ngIf="placeId == 'new'" class="title">Створити місце</h2>
+    <h2 *ngIf="placeId != 'new'" class="title">Редагувати місце</h2>
+
+    <form [formGroup]="placeForm" (ngSubmit)="placeId == 'new' ? onSubmitNew() : onSubmit()" class="place-form">
+      <div class="form-group">
+        <label for="name">Назва</label>
+        <input type="text" id="name" formControlName="name" placeholder="Введіть назву місця" />
+      </div>
+  
+      <div class="form-group">
+        <label for="address">Адреса</label>
+        <input type="text" id="address" formControlName="address" placeholder="Введіть адресу" />
+      </div>
+  
+      <div class="form-group">
+        <label for="city">Місто</label>
+        <input type="text" id="city" formControlName="city" placeholder="Введіть місто" />
+      </div>
+  
+      <button type="submit" class="save-btn">💾 Зберегти</button>
+    </form>
+  
+    <!-- Відгуки -->
+    <div *ngIf="placeId != 'new' and reviews?.length" class="reviews-section">
+      <h3>Відгуки</h3>
+      <div class="review-card" *ngFor="let review of reviews">
+        <div class="review-header">
+          <span class="rating">★ {{ review.rating }}/5</span>
+          <span class="user">{{ review.userName || 'Анонім' }}</span>
+        </div>
+        <p class="text">{{ review?.text }}</p>
+      </div>
+    </div>
+  
+    <div *ngIf="!reviews?.length" class="no-reviews">
+      Немає відгуків поки що.
+    </div>
+  </div>
+  

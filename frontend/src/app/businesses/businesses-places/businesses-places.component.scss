@@ -1,0 +1,81 @@
+:host {
+    display: block;
+    padding: 2rem;
+    background: #f4f6f8;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  .places-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .place-card {
+    cursor: pointer;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+  
+    h3 {
+      margin: 0 0 0.5rem;
+      color: #2c3e50;
+    }
+  
+    p {
+      margin: 0 0 0.5rem;
+      color: #555;
+    }
+  
+    small {
+      color: #888;
+    }
+  
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+  }
+  .place-card-add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+        h3 {
+            margin: 0;
+            padding: 0;
+            width: fit-content;
+            color: #007bff;
+        }
+    }
+  
+  .empty-state {
+    text-align: center;
+    margin-top: 5rem;
+  
+    p {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+  
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+}
+  

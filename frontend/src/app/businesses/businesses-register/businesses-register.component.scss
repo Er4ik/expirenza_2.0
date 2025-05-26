@@ -8,12 +8,12 @@
   }
   
   .auth-container {
-    background: #fff;
-    padding: 2rem 2.5rem;
+    background: #ffffff;
+    padding: 2.5rem 2.5rem 2rem;
     border-radius: 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
     width: 100%;
-    max-width: 420px;
+    max-width: 460px;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
@@ -21,7 +21,7 @@
   
     h2 {
       text-align: center;
-      color: #2d3a69;
+      color: #2e3a59;
       margin-bottom: 1rem;
     }
   
@@ -34,31 +34,31 @@
     label {
       font-size: 0.95rem;
       font-weight: 500;
-      color: #4a4a4a;
+      color: #444;
     }
   
     input {
       padding: 0.75rem 1rem;
       font-size: 1rem;
-      border: 1px solid #d5d5d5;
+      border: 1px solid #cfcfcf;
       border-radius: 0.5rem;
       transition: border-color 0.3s ease;
   
       &:focus {
-        border-color: #4a7dfc;
+        border-color: #4a90e2;
         outline: none;
-        box-shadow: 0 0 0 3px rgba(74, 125, 252, 0.2);
+        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
       }
     }
   
     .error-message {
-      color: #e53935;
+      color: #d32f2f;
       font-size: 0.9rem;
-      margin-top: -0.5rem;
+      margin-top: -0.4rem;
     }
   
     button {
-      background-color: #4a7dfc;
+      background-color: #4a90e2;
       color: white;
       font-size: 1rem;
       padding: 0.75rem;
@@ -68,11 +68,11 @@
       transition: background-color 0.3s ease;
   
       &:hover {
-        background-color: #3a6ae0;
+        background-color: #3c7fd4;
       }
   
       &:disabled {
-        background-color: #aabcf5;
+        background-color: #a9c6f2;
         cursor: not-allowed;
       }
     }
@@ -83,7 +83,7 @@
       font-size: 0.9rem;
   
       a {
-        color: #4a7dfc;
+        color: #4a90e2;
         text-decoration: none;
         font-weight: 600;
   

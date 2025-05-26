@@ -1,1 +1,18 @@
-<p>businesses-login works!</p>
+<div class="auth-container">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <label for="email">Email</label>
+      <input type="email" formControlName="email" id="email" />
+  
+      <label for="password">Password</label>
+      <input type="password" formControlName="password" id="password" />
+  
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    </form>
+  
+    <div class="switch-link">
+      Don’t have an account?
+      <a (click)="goToRegister()">Register</a>
+    </div>
+  </div>
+  

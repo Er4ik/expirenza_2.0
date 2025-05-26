@@ -1,1 +1,19 @@
-<p>businesses-places works!</p>
+<!-- Коли є заклади -->
+<div class="places-grid" *ngIf="places.length > 0; else noPlaces">
+    <div class="place-card" (click)="goToPlaceInfo(place._id)"  *ngFor="let place of places">
+        <h3>{{ place.name }}</h3>
+        <p>{{ place.city }} {{ place.address }}</p>
+    </div>
+    <div (click)="goToPlaceInfo('new')" class="place-card place-card-add">
+        <h3>+ Add new place</h3>
+    </div>
+</div>
+
+<!-- Коли немає жодного закладу -->
+<ng-template #noPlaces>
+    <div class="empty-state">
+        <p>Немає жодного закладу 😕</p>
+        <button (click)="openCreateModal()">Створити місце</button>
+    </div>
+</ng-template>
+  

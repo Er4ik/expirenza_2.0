@@ -1,0 +1,21 @@
+<div class="auth-container">
+    <h2>Create Account</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <label for="name">Name</label>
+      <input type="text" formControlName="name" id="name" />
+  
+      <label for="email">Email</label>
+      <input type="email" formControlName="email" id="email" />
+  
+      <label for="password">Password</label>
+      <input type="password" formControlName="password" id="password" />
+  
+      <button type="submit" [disabled]="registerForm.invalid">Register</button>
+    </form>
+  
+    <div class="switch-link">
+      Already have an account?
+      <a (click)="goToLogin()">Login</a>
+    </div>
+  </div>
+  

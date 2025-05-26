@@ -3,7 +3,10 @@ const Place = require("../models/place.model");
 // Створити нове місце
 exports.createPlace = async (req, res) => {
   try {
-    const place = new Place(req.body);
+    const place = new Place({
+      ...req.body,
+    });
+
     await place.save();
     res.status(201).json(place);
   } catch (err) {
@@ -41,32 +44,25 @@ exports.updatePlace = async (req, res) => {
   const { placeId } = req.params;
 
   try {
-    const updatedPlace = await Place.findByIdAndUpdate(placeId, req.body, {
-      new: true, // повертає оновлений документ
-      runValidators: true, // виконує валідацію схем
-    });
+    const place = await Place.findById(placeId);
+    if (!place) return res.status(404).json({ message: "Place not found" });
+    Object.assign(place, req.body);
+    await place.save();
 
-    if (!updatedPlace) {
-      return res.status(404).json({ message: "Place not found" });
-    }
-
-    res.status(200).json(updatedPlace);
+    res.status(200).json(place);
   } catch (err) {
     res.status(500).json({ message: "Failed to update place", error: err });
   }
 };
 
-// Видалити місце
 exports.deletePlace = async (req, res) => {
   const { placeId } = req.params;
 
   try {
-    const deletedPlace = await Place.findByIdAndDelete(placeId);
+    const place = await Place.findById(placeId);
+    if (!place) return res.status(404).json({ message: "Place not found" });
 
-    if (!deletedPlace) {
-      return res.status(404).json({ message: "Place not found" });
-    }
-
+    await place.deleteOne();
     res.status(200).json({ message: "Place deleted successfully" });
   } catch (err) {
     res.status(500).json({ message: "Failed to delete place", error: err });

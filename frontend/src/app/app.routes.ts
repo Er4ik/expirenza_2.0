@@ -6,6 +6,8 @@ import { BusinessesLoginComponent } from './businesses/businesses-login/business
 import { BusinessesPlacesComponent } from './businesses/businesses-places/businesses-places.component';
 import { BusinessesPaymentsComponent } from './businesses/businesses-payments/businesses-payments.component';
 import { UsersPlacesComponent } from './users/users-places/users-places.component';
+import { BusinessesRegisterComponent } from './businesses/businesses-register/businesses-register.component';
+import { PlaceInfoComponent } from './businesses/businesses-places/place-info/place-info.component';
 
 export const routes: Routes = [
   {
@@ -21,8 +23,16 @@ export const routes: Routes = [
     component: BusinessesLoginComponent,
   },
   {
-    path: 'businesses/:id/places',
+    path: 'businesses/register',
+    component: BusinessesRegisterComponent,
+  },
+  {
+    path: 'businesses/places',
     component: BusinessesPlacesComponent,
+  },
+  {
+    path: 'businesses/places/:id',
+    component: PlaceInfoComponent,
   },
   {
     path: 'businesses/:id/:id/payments',
