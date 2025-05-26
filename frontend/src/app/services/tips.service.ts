@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Tip {
-  userId: number;      // ID користувача
+  userId: string;      // ID користувача
   placeId: string;     // ID закладу
   amount: number;      // сума чайових
   comment?: string;    // текстовий коментар
@@ -13,7 +13,7 @@ export interface Tip {
   providedIn: 'root'
 })
 export class TipService {
-  private apiUrl = 'https://expirenza-2-0.onrender.com/api/places'; // змінити за потреби
+  private apiUrl = 'https://expirenza-2-0.onrender.com/api/tips'; // змінити за потреби
 
   constructor(private http: HttpClient) {}
 

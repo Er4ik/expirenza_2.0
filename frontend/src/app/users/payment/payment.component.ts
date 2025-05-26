@@ -45,12 +45,12 @@ export class PaymentComponent {
     }
     
     const tipData = {
-      userId: 1,
+      userId: '6651abc1234def56789abcde',
       placeId,
       amount: this.baseAmount,
       paymentMethodId: 1,
     };
-    
+
     this.placeService.updatePlace(placeId, { rating: this.rating }).pipe(
       switchMap(() => this.placeService.addReview(placeId, { text: this.comment })),
       switchMap(() => this.tipService.createTip(tipData))
