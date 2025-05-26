@@ -21,7 +21,7 @@ export interface Place {
   providedIn: 'root'
 })
 export class PlaceService {
-  private apiUrl = 'http://localhost:4000/api/places'; // змінити під себе
+  private apiUrl = 'https://expirenza-2-0.onrender.com/api/places'; // змінити під себе
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 

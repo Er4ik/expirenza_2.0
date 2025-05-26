@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:4000/api/users'; 
+  private apiUrl = 'https://expirenza-2-0.onrender.com/api/users'; 
   constructor(private http: HttpClient) {}
 
   register(user: { name: string, email: string, password: string }): Observable<any> {
