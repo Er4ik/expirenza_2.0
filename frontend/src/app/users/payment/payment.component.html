@@ -1,0 +1,35 @@
+<div class="payment-container">
+    <h2>Оплата</h2>
+  
+    <div class="amount-box">
+      <p>Сума до сплати: <strong>{{ totalAmount | number:'1.2-2' }} ₴</strong></p>
+    </div>
+  
+    <div class="tip-buttons">
+      <p>Додати чайові:</p>
+      <div class="buttons">
+        <button 
+          *ngFor="let percent of [5, 10, 15, 20]" 
+          [class.active]="tipPercent === percent"
+          (click)="selectTip(percent)">
+          +{{ percent }}%
+        </button>
+      </div>
+    </div>
+  
+    <div class="rating-box">
+      <p>Оцініть сервіс:</p>
+      <div class="stars">
+        <ng-container *ngFor="let star of getStars(); let i = index">
+          <span class="star" [class.filled]="i < rating" (click)="setRating(i + 1)">★</span>
+        </ng-container>
+      </div>
+    </div>
+  
+    <div class="comment-box">
+      <textarea [(ngModel)]="comment" rows="4" placeholder="Залиште відгук..."></textarea>
+    </div>
+  
+    <button (click)="submitPayment()">Сплатити</button>
+  </div>
+  

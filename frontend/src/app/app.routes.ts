@@ -9,6 +9,7 @@ import { UsersPlacesComponent } from './users/users-places/users-places.componen
 import { BusinessesRegisterComponent } from './businesses/businesses-register/businesses-register.component';
 import { PlaceInfoComponent } from './businesses/businesses-places/place-info/place-info.component';
 import { UsersPlaceInfoComponent } from './users/users-places/place-info/place-info.component';
+import { PaymentComponent } from './users/payment/payment.component';
 
 export const routes: Routes = [
   {
@@ -50,5 +51,9 @@ export const routes: Routes = [
   {
     path: 'users/places/:id',
     component: UsersPlaceInfoComponent,
+  },
+  {
+    path: 'users/places/:id/payment',
+    component: PaymentComponent,
   }
 ];

@@ -5,7 +5,7 @@ const authMiddleware = require("../middlewares/authMiddleware");
 
 router.post("/", authMiddleware, placeController.createPlace);
 router.get("/", placeController.getAllPlaces);
-router.put("/:placeId", authMiddleware, placeController.updatePlace);
+router.put("/:placeId", placeController.updatePlace);
 router.delete("/:placeId", authMiddleware, placeController.deletePlace);
 router.get("/:placeId", placeController.getPlaceById);
 
